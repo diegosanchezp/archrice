@@ -5,3 +5,5 @@
 	editor = nvim
 [merge]
 	tool = vimdiff
+[status]
+	submodulesummary = 1
