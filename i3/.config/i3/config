@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -28,20 +28,27 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Launch polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# Launch compositor
+exec --no-startup-id picom -b
 
-# Set wallpaper and generate colorscheme when i3 launches
-exec_always --no-startup-id setwall
+# On startup have these workspace layouts and exec programs
+# includes xresources setup script 'setwall'
+exec bash /home/diego/.config/i3/setup_workspaces.sh
 
-# Remove this, was used for virtualbox lab environment
-exec --no-startup-id VBoxClient --clipboard
+# https://i3wm.org/docs/debugging.html
+# Use 25 MiB of RAM for debug logs
+# exec i3 --shmlog-size=26214400
+# exec i3 -V -d all &>> "$HOME/i3.log"
+
+## Launch // Screenshot // <> s ##
+bindsym $mod+g exec gnome-screenshot -i
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -71,6 +78,20 @@ bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 
 bindsym $mod+Shift+u exec dmenuunicode
 
+## Session // Lock and turn off Screen // <> Escape ##
+bindsym $mod+Escape exec i3lock -c 000000 && xset dpms force off
+
+## Launch // Browser // <> w ##
+bindsym $mod+w exec gtk-launch $(xdg-settings get default-web-browser)
+
+## Launch // File Browser // <> n ##
+bindsym $mod+n exec pcmanfm
+
+## Launch terminal on distribuidor-dj project directory
+bindsym $mod+Shift+d exec st -e zsh -c "cd ~/distribuidor-repo && zsh -i"
+
+## Launch // Terminals on workspace 2 // <> n ##
+bindsym $mod+Shift+t exec bash /home/diego/.config/i3/setup_workspaces_2.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -165,6 +186,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# password manager
+bindsym $mod+p exec passmenu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -222,5 +245,4 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 client.background       $bg
-
 
