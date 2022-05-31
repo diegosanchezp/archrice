@@ -5,6 +5,8 @@
 	editor = nvim
 [merge]
 	tool = vimdiff
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [safe]
 	directory = /home/diego/shared-data/Users/diego/Documents/LinuxSoConfig
 	directory = /home/diego/shared-data/Users/diego/Documents/ObsidianVaults/Diego's-Knowledge
