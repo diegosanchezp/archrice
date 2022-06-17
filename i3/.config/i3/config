@@ -39,7 +39,7 @@ exec --no-startup-id picom -b
 
 # On startup have these workspace layouts and exec programs
 # includes xresources setup script 'setwall'
-exec bash /home/diego/.config/i3/setup_workspaces.sh
+exec bash $HOME/.config/i3/setup_workspaces.sh
 
 # https://i3wm.org/docs/debugging.html
 # Use 25 MiB of RAM for debug logs
@@ -91,7 +91,7 @@ bindsym $mod+n exec pcmanfm
 bindsym $mod+Shift+d exec st -e zsh -c "cd ~/distribuidor-repo && zsh -i"
 
 ## Launch // Terminals on workspace 2 // <> n ##
-bindsym $mod+Shift+t exec bash /home/diego/.config/i3/setup_workspaces_2.sh
+bindsym $mod+Shift+t exec bash $HOME/.config/i3/setup_workspaces_2.sh
 
 # change focus
 bindsym $mod+h focus left

@@ -1,5 +1,5 @@
 #!/bin/bash
-i3-msg 'workspace 2; append_layout /home/diego/.config/i3/workspace-2.json'
+i3-msg 'workspace 2; append_layout $HOME/.config/i3/workspace-2.json'
 
 # Spawn 4 st terminals
 for ((n=0;n<4;n++)); do
