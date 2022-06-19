@@ -27,3 +27,13 @@ There are two folders where you can find configuration that will endup in `~/.co
 # Forked configurations from other persons 
 ./lukeconfig
 ```
+
+## ZSH Aliases
+There are two places where to put aliases
+
+```bash
+#1. General purpose aliases
+./zsh/.myaliasrc
+#2 Local aliases to the machie
+./.localalias
+```
