@@ -80,3 +80,6 @@ bindkey '^e' edit-command-line
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
+cpr() {
+  rsync --archive -hh --partial --info=name,stats1,progress2 --modify-window=1 "$@"
+}
