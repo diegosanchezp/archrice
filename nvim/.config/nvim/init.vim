@@ -1,6 +1,6 @@
 " ==== Vanilla configuration ==== "
 let mapleader =","
-set listchars=trail:~,extends:>,precedes:<
+set listchars=trail:~,extends:>,precedes:<,tab:▸·
 set list
 set confirm
 
