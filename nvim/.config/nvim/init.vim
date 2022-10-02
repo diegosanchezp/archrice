@@ -166,6 +166,11 @@ Plug 'vim-airline/vim-airline-themes'
 "
 Plug 'xiyaowong/nvim-transparent', {'as': 'transparent'}
 
+" PlantUML
+Plug 'tyru/open-browser.vim'
+Plug 'aklt/plantuml-syntax'
+Plug 'weirongxu/plantuml-previewer.vim'
+
 " Initialize plugin system
 call plug#end()
 
