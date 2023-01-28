@@ -80,6 +80,7 @@ bindsym $mod+Shift+u exec dmenuunicode
 
 ## Session // Lock and turn off Screen // <> Escape ##
 bindsym $mod+Escape exec i3lock -c 000000 && xset dpms force off
+bindsym $mod+Shift+b exec xset dpms force off
 
 ## Launch // Browser // <> w ##
 bindsym $mod+w exec gtk-launch $(xdg-settings get default-web-browser)

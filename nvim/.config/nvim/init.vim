@@ -1,6 +1,6 @@
 " ==== Vanilla configuration ==== "
 let mapleader =","
-set listchars=trail:~,extends:>,precedes:<
+set listchars=trail:~,extends:>,precedes:<,tab:▸·
 set list
 set confirm
 
@@ -165,6 +165,11 @@ Plug 'vim-airline/vim-airline-themes'
 
 "
 Plug 'xiyaowong/nvim-transparent', {'as': 'transparent'}
+
+" PlantUML
+Plug 'tyru/open-browser.vim'
+Plug 'aklt/plantuml-syntax'
+Plug 'weirongxu/plantuml-previewer.vim'
 
 " Initialize plugin system
 call plug#end()

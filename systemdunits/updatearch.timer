@@ -1,0 +1,12 @@
+[Unit]
+Description=Get arch updates on Saturday
+
+[Timer]
+OnCalendar=Saturday *-*-* 1:00
+Unit=updatearch.service
+
+# For testing
+# OnActiveSec=15s
+
+[Install]
+WantedBy=timers.target

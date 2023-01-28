@@ -1,0 +1,11 @@
+[Unit]
+Description=Download archlinux update
+After=network-online.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/pacman --sync --refresh --sysupgrade --downloadonly --verbose --noconfirm
+
+[Install]
+WantedBy=multi-user.target
