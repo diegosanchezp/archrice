@@ -1,7 +1,7 @@
 local utils = require("utils")
 
 -- Install plugin manager
-utils.install_packer()
+-- utils.install_packer()
 
 
 -- Telescope configuration
