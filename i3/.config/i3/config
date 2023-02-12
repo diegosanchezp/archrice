@@ -37,6 +37,12 @@ exec --no-startup-id nm-applet
 # Launch compositor
 exec --no-startup-id picom -b
 
+# Bluetooth headphones
+exec --no-startup-id blueman-applet
+exec --no-startup-id pasystray
+
+# Gnome keyring
+exec --no-startup-id dbus-update-activation-environment --all
 # On startup have these workspace layouts and exec programs
 # includes xresources setup script 'setwall'
 exec bash $HOME/.config/i3/setup_workspaces.sh
@@ -47,7 +53,7 @@ exec bash $HOME/.config/i3/setup_workspaces.sh
 # exec i3 -V -d all &>> "$HOME/i3.log"
 
 ## Launch // Screenshot // <> s ##
-bindsym $mod+g exec gnome-screenshot -i
+bindsym $mod+g exec gnome-screenshot -i -a
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -169,6 +175,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+bindsym $mod+Tab workspace back_and_forth
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
