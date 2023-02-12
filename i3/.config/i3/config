@@ -94,8 +94,6 @@ bindsym $mod+w exec gtk-launch $(xdg-settings get default-web-browser)
 ## Launch // File Browser // <> n ##
 bindsym $mod+n exec pcmanfm
 
-## Launch terminal on distribuidor-dj project directory
-bindsym $mod+Shift+d exec st -e zsh -c "cd ~/distribuidor-repo && zsh -i"
 
 ## Launch // Terminals on workspace 2 // <> n ##
 bindsym $mod+Shift+t exec bash $HOME/.config/i3/setup_workspaces_2.sh
@@ -226,7 +224,7 @@ bindsym $mod+r mode "resize"
 
 # i3gaps
 # You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 5
 
 gaps inner 10
 
@@ -254,3 +252,6 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 client.background       $bg
 
+# Load additional configuration specific to the computer,
+# this won't be checked out to git
+include ~/.config/i3/locali3.conf
