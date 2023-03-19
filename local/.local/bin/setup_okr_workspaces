@@ -1,0 +1,22 @@
+#!/bin/bash
+
+WORKSPACE=2
+
+i3-msg "workspace $WORKSPACE; append_layout $HOME/.config/i3/workspace-2.json"
+
+COMMAND1="st -e zsh -c 'cd ~/okr-front && zsh -i'"
+
+# First terminal
+i3-msg "workspace $WORKSPACE; exec --no-startup-id $COMMAND1"
+
+COMMAND2="st -e zsh -c 'source .zshrc && okr-back'"
+
+# Second child a tree
+i3-msg "workspace $WORKSPACE; exec --no-startup-id $COMMAND2";
+
+COMMAND3="st -e zsh -c 'source .zshrc && okr-front'"
+
+i3-msg "workspace $WORKSPACE; exec --no-startup-id $COMMAND3";
+
+# Last terminal
+i3-msg "workspace $WORKSPACE; exec --no-startup-id $COMMAND1"
