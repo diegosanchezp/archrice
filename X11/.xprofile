@@ -1,3 +1,6 @@
 export PATH="${PATH}:${HOME}/.local/bin"
 export WALLDIR=$HOME/wallpapers
-export WALLPAPER=$WALLDIR/canyon.jpg
+# WALLPAPER moved to ~/.xlocalprofile
+# Here's an example
+# export WALLPAPER=$WALLDIR/diamond-low-poly.png
+[ -f ~/.xlocalprofile ] && source ~/.xlocalprofile
