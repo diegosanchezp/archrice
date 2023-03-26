@@ -1,3 +1,6 @@
 [submodule "lukeconfig"]
 	path = lukeconfig
 	url = https://github.com/diegosanchezp/voidrice.git
+[submodule "ideapadconfig"]
+	path = ideapadconfig
+	url = git@github.com:diegosanchezp/ideapadconfig.git

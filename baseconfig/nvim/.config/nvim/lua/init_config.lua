@@ -1,7 +1,7 @@
 local utils = require("utils")
 
 -- Install plugin manager
-utils.install_packer()
+-- utils.install_packer()
 
 
 -- Telescope configuration
@@ -62,7 +62,7 @@ require('nvim_comment').setup()
 
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Mappings.
 local opts = { noremap=true, silent=true }

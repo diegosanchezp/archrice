@@ -1,27 +1,11 @@
 " ==== Vanilla configuration ==== "
-let mapleader =","
-set listchars=trail:~,extends:>,precedes:<,tab:▸·
-set list
-set confirm
 
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-" pywall recomendation
-set termguicolors
-set encoding=utf-8
+lua << EOF
+require("options")
+require("mappings")
+EOF
 
-" Tabs are spaces
-set expandtab
-
-set noshiftround
-set autoindent
 syntax on
-set wrap
-set relativenumber
-set number
-set clipboard+=unnamedplus
-set foldmethod=indent
 filetype on
 
 
@@ -34,9 +18,6 @@ augroup END
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-set splitbelow splitright
 
 " ==== Functions ==== "
 " https://vi.stackexchange.com/a/456
