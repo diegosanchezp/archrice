@@ -1,5 +1,21 @@
-export PATH=~/.npm-global/bin:$PATH
-export PATH="$HOME/.poetry/bin:$PATH"
+# Append "$1" to $PATH when not already in.
+# This function was copied from /etc/profile
+append_path () {
+    case ":$PATH:" in
+        *:"$1":*)
+            ;;
+        *)
+            PATH="${PATH:+$PATH:}$1"
+    esac
+}
+
+append_path ~/.npm-global/bin
+append_path "$HOME/.poetry/bin"
+append_path "$HOME/.local/bin"
+
+# Force PATH to be environment
+export PATH
+
 export SUDO_EDITOR=nvim
 export EDITOR=nvim
 export OPENER=xdg-open
