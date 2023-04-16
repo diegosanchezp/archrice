@@ -116,6 +116,8 @@ lspconfig.html.setup {
   filetypes = { "html", "htmldjango", "jinja.html" },
 }
 
+-- A tree like view for symbols in Neovim using the Language Server Protocol
+require("symbols-outline").setup()
 
 local cmp = require 'cmp'
 

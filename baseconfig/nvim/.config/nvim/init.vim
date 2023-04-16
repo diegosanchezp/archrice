@@ -121,7 +121,7 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-nvim-lua'
-
+Plug 'simrat39/symbols-outline.nvim'
 
 " ====  Modern theme for modern VIMs  ====
 Plug 'ayu-theme/ayu-vim' " or other package manager
@@ -211,8 +211,12 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>fs <cmd>lua require('telescope.builtin').git_status()<cr>
+" Deprecated i don't use this, substituted by lspsymbols
+" nnoremap <leader>fs <cmd>lua require('telescope.builtin').git_status()<cr>
+nnoremap <leader>fs <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
+
 nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
+
 
 set dictionary+=/usr/share/dict/spanish,/usr/share/dict/words
 
