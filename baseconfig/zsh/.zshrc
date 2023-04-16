@@ -15,6 +15,7 @@ bindkey -v
 bindkey "^R" history-incremental-pattern-search-backward
 
 # Basic auto/tab complete:
+fpath+=~/.zfunc # Folder function suggested by Poetry
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
