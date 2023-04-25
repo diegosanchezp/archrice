@@ -6,6 +6,22 @@ alias yt-mp3='yt-dlp --config-location ~/.config/youtube-dl/yt-mp3.conf'
 alias youtube-dl='yt-dlp --config-location ~/.config/youtube-dl/yt-dl.conf'
 alias luamake=/home/diego/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake
 
+help(){
+  "$@" --help | less
+}
+
+# Open documents in a new window
 opendoc(){
  setsid -f $OPENER "$@"
+}
+
+# Copy current working directorie (pwd) to clipboard
+cpwd(){
+  pwd | xclip -sel clip
+}
+
+# Copy last command to clipboard
+# Not working currently
+lastcpy(){
+  echo !! | xclip -sel clip
 }
