@@ -4,3 +4,9 @@
 [submodule "ideapadconfig"]
 	path = ideapadconfig
 	url = git@github.com:diegosanchezp/ideapadconfig.git
+[submodule "thinkpadx201"]
+	path = thinkpadx201
+	url = git@github.com:diegosanchezp/thinkpadx201.git
+[submodule "hppavilionconfig"]
+	path = hppavilionconfig
+	url = git@github.com:diegosanchezp/hppavilionconfig.git
