@@ -1,0 +1,19 @@
+{
+  "legacyEditor": false,
+  "livePreview": true,
+  "vimMode": true,
+  "foldHeading": true,
+  "foldIndent": true,
+  "defaultViewMode": "source",
+  "showFrontmatter": true,
+  "spellcheck": true,
+  "spellcheckLanguages": [
+    "es-MX",
+    "en-US"
+  ],
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "./",
+  "promptDelete": false,
+  "showLineNumber": false,
+  "tabSize": 2
+}
