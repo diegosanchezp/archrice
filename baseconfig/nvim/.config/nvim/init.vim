@@ -155,6 +155,9 @@ Plug 'weirongxu/plantuml-previewer.vim'
 " markdown preview plugin for (neo)vim 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
+" The undo history visualizer for VIM 
+Plug 'mbbill/undotree'
+
 " Initialize plugin system
 call plug#end()
 
