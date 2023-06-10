@@ -9,6 +9,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Display the popup if it belongs to the fullscreen application only
+popup_during_fullscreen smart
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
