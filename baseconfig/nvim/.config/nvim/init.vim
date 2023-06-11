@@ -158,6 +158,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " The undo history visualizer for VIM 
 Plug 'mbbill/undotree'
 
+" surround.vim: Delete/change/add parentheses/quotes/XML-tags/much more with ease 
+Plug 'tpope/vim-surround'
+
 " Initialize plugin system
 call plug#end()
 
