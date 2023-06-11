@@ -10,10 +10,23 @@ help(){
   "$@" --help | less
 }
 
-# Open documents in a new window
+
+# Search and open documents in a new window
 opendoc(){
- setsid -f $OPENER "$@"
+  folder="${1:=$HOME/Documents}"
+  cd "$folder"
+  files=$(fzf --multi)
+
+  if [ -n "$files" ]; then
+    while IFS= read -r file; do
+      setsid -f $OPENER "$file"
+    done <<< "$files"
+  fi
+
+  # Return back
+  cd -
 }
+
 
 # Copy current working directorie (pwd) to clipboard
 cpwd(){
