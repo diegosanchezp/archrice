@@ -10,6 +10,10 @@ help(){
   "$@" --help | less
 }
 
+# open a document, like pdf, .xsl
+openfile(){
+  setsid -f $OPENER "$1"
+}
 
 # Search and open documents in a new window
 opendoc(){
