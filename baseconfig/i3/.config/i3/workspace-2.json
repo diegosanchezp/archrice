@@ -14,8 +14,8 @@
     "percent": 0.5,
     "swallows": [
        {
-        "class": "^St$",
-        "instance": "^st$"
+           "class": "^Alacritty$",
+           "instance": "^Alacritty$"
        }
     ],
     "type": "con"
@@ -45,8 +45,8 @@
             "percent": 0.5,
             "swallows": [
                {
-                "class": "^St$",
-                "instance": "^st$"
+                "class": "^Alacritty$",
+                "instance": "^Alacritty$"
                }
             ],
             "type": "con"
@@ -75,8 +75,8 @@
                     "percent": 0.5,
                     "swallows": [
                        {
-                        "class": "^St$",
-                        "instance": "^st$"
+                           "class": "^Alacritty$",
+                           "instance": "^Alacritty$"
                        }
                     ],
                     "type": "con"
@@ -96,8 +96,8 @@
                     "percent": 0.5,
                     "swallows": [
                        {
-                        "class": "^St$",
-                        "instance": "^st$"
+                           "class": "^Alacritty$",
+                           "instance": "^Alacritty$"
                        }
                     ],
                     "type": "con"
