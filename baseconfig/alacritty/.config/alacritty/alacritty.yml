@@ -33,6 +33,11 @@ key_bindings:
   # Override copy and paste
   - { key: C, mods: Alt, action: Copy }
   - { key: V, mods: Alt, action: Paste }
+  # Increase-decrease font fize
+  - {key: J ,mods: Alt|Shift, action: IncreaseFontSize}
+  - {key: K ,mods: Alt|Shift, action: DecreaseFontSize}
+  - {key: R ,mods: Alt|Shift, action: ResetFontSize}
+
 
 window:
   # Window dimensions (changes require restart)
