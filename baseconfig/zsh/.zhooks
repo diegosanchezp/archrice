@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# This files executes commands or bash functions
+# when an interactive zsh shell is spawned programatically by alacritty
+# its used by setup_workspace bash files
+
+# Almost all of the commands above are bash functions
+# loaded by zsh in .zshrc in ~/.localalias
+
+# The variables are set on the fly by alacritty
+# with --option
+
+# Django environment (Tesis)
+if [ -n "$tesisdev" ]; then
+  tesisdev && \
+  if [ "$tcommand" = "runserver" ]; then
+    runserver
+  fi
+  if [ "$tcommand" = "pnpm" ]; then
+    pnpm run dev
+  fi
+fi
+
+
+# Shimoku (WORK)
+if [ -n "$shimokudev" ]; then
+  shimoku
+fi
