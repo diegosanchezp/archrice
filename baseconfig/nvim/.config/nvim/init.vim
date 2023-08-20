@@ -161,13 +161,16 @@ Plug 'mbbill/undotree'
 " surround.vim: Delete/change/add parentheses/quotes/XML-tags/much more with ease 
 Plug 'tpope/vim-surround'
 
+" Github's Neovim themes 
+
+Plug 'projekt0n/github-nvim-theme'
 " Initialize plugin system
 call plug#end()
 
 " Set colorscheme
-" colorscheme wal
+colorscheme github_light_high_contrast
 
-let ayucolor="dark" " for mirage version of theme
+let ayucolor="light" " for mirage version of theme
 runtime colors/ayu.vim
 highlight Normal ctermfg=black ctermbg=black
 " let s:fg_comment = "#FFFFFF"

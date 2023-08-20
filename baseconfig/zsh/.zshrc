@@ -78,6 +78,8 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.myaliasrc" ] && source "$HOME/.myaliasrc"
 [ -f "$HOME/.localalias" ] && source "$HOME/.localalias"
+[ -f "$HOME/.zhooks" ] && source "$HOME/.zhooks"
+
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
