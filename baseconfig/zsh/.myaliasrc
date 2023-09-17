@@ -5,6 +5,7 @@ alias pd=pushd
 alias yt-mp3='yt-dlp --config-location ~/.config/youtube-dl/yt-mp3.conf'
 alias youtube-dl='yt-dlp --config-location ~/.config/youtube-dl/yt-dl.conf'
 alias luamake=/home/diego/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake
+alias androidscreen='scrcpy -d --hid-keyboard --hid-mouse'
 
 help(){
   "$@" --help | less
