@@ -218,6 +218,9 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 " ==== LSP config (the mappings used in the default file don't quite work right)
 
+" https://github.com/nvim-telescope/telescope.nvim/issues/991
+autocmd! FileType TelescopeResults setlocal nofoldenable
+
 " ==== Vim telescope mappings using Lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
