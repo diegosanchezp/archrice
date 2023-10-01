@@ -1,0 +1,39 @@
+{
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "rect": {
+       "height": 780,
+       "width": 1920,
+       "x": 0,
+       "y": 162
+    },
+    "type": "floating_con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 5,
+            "floating": "user_on",
+            "geometry": {
+               "height": 600,
+               "width": 800,
+               "x": 0,
+               "y": 0
+            },
+            "marks": ["start_on_scratch"],
+            "name": "Alacritty",
+            "percent": 1,
+            "swallows": [
+               {
+                   "class": "^Alacritty$",
+                   "instance": "^Alacritty$",
+                   "machine": "^lenovo$",
+                   "title": "^Alacritty$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
