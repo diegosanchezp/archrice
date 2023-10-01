@@ -16,3 +16,6 @@ bash $HOME/.config/i3/setup_workspaces_2.sh
 i3-msg "workspace 3; append_layout $HOME/.config/i3/workspace-3.json"
 
 i3-msg "workspace 3; exec --no-startup-id obsidian"
+
+# Scratchpad
+bash "$HOME/.config/i3/scratchpad.sh"

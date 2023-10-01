@@ -47,6 +47,9 @@ exec --no-startup-id dbus-update-activation-environment --all
 # includes xresources setup script 'setwall'
 exec bash $HOME/.config/i3/setup_workspaces.sh
 
+# Scratchpad terminal window for quick one off commands
+bindsym $mod+minus scratchpad show
+
 # https://i3wm.org/docs/debugging.html
 # Use 25 MiB of RAM for debug logs
 # exec i3 --shmlog-size=26214400
