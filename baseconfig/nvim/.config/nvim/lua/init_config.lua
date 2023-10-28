@@ -7,6 +7,7 @@ local utils = require("utils")
 -- Telescope configuration
 local telescope = require("telescope")
 local telescope_actions = require('telescope.actions')
+
 telescope.setup {
   defaults = {
     file_ignore_patterns = {"node_modules", ".git"},
@@ -21,6 +22,8 @@ telescope.setup {
   pickers = {
     find_files = {
       theme = "dropdown",
+      -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
     },
     live_grep = {
       theme = "dropdown",
