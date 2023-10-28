@@ -7,6 +7,10 @@ local o = vim.o
 local g = vim.g
 local opt = vim.opt
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"html", "htmldjango", "jinja.html"},
+    command = "setlocal shiftwidth=4 tabstop=4"
+})
 
 o.listchars = "trail:~,extends:>,precedes:<,tab:▸·"
 
