@@ -47,7 +47,6 @@ vim.o.background = "dark"
 
 -- pywal.setup()
 require("transparent").setup({
-  enable = false, -- boolean: enable transparent
   extra_groups = { -- table/string: additional groups that should be clear
     -- In particular, when you set it to 'all', that means all avaliable groups
 
@@ -59,7 +58,7 @@ require("transparent").setup({
     "BufferLineSeparator",
     "BufferLineIndicatorSelected",
   },
-  exclude = {}, -- table: groups you don't want to clear
+  exclude_groups = {}, -- table: groups you don't want to clear
 })
 require('nvim_comment').setup()
 
