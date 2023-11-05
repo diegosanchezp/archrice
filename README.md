@@ -1,6 +1,10 @@
 # Configuration files for my arch linux rice
 Powered by [GNU-stow](https://www.gnu.org/software/stow/manual/stow.html)
 
+# Dependencies
+- stow
+- python 3.11
+
 ## Instalation
 ```sh
 # Simulate first, to test what it will do

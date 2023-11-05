@@ -10,3 +10,7 @@
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
+# Ignore python test files
+^test_.*\.py
+# Python cache files
+^.*__pycache__
