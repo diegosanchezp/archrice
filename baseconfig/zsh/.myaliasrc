@@ -32,6 +32,10 @@ opendoc(){
   cd -
 }
 
+load_env(){
+  set -a
+  source ${1:-.env}
+}
 
 # Copy current working directorie (pwd) to clipboard
 cpwd(){
