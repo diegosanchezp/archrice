@@ -8,27 +8,38 @@ from setup_workspace_1 import (
 
 class TestSetupWorkspace1(unittest.TestCase):
 
+    def setUp(self):
+        super().setUp()
+        self.webpages = Webpages()
+
+    # python -m unittest test_setup_workspace_1.TestSetupWorkspace1.test_read_webpagesjson
+
+    def test_read_webpagesjson(self):
+        webpages = Webpages()
+        self.assertIsNotNone(webpages.job)
+        self.assertIsNotNone(webpages.tesis)
+
     # python -m unittest test_setup_workspace_1.TestSetupWorkspace1.test_get_webpages
     def test_get_webpages(self):
 
-        # Should open shimoku webpages
+        # Should open job webpages
         self.assertEqual(
             # Monday 5:30am
             get_webpages(0, time(hour=5,minute=30)),
-            Webpages.shimokujob,
+            self.webpages.job,
         )
 
         self.assertEqual(
             # Friday 12m
             get_webpages(4, time(hour=12,minute=0)),
-            Webpages.shimokujob,
+            self.webpages.job,
         )
 
         # Should open tesis webpages
         self.assertEqual(
             # Friday 2:30pm
             get_webpages(4, time(hour=14,minute=30)),
-            Webpages.tesis,
+            self.webpages.tesis,
         )
 
         # On weekends doesn't opens any webpage
@@ -53,9 +64,9 @@ class TestSetupWorkspace1(unittest.TestCase):
         )
     # python -m unittest test_setup_workspace_1.TestSetupWorkspace1.test_parse_args
     def test_parse_args(self):
-        args = parse_args(["--webpages", "shimokujob"])
+        args = parse_args(["--webpages", "job"])
 
         self.assertEqual(
-            "shimokujob",
+            "job",
             args.webpages,
         )

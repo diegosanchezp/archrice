@@ -6,6 +6,7 @@ import subprocess
 import json
 import argparse
 from typing import Optional
+from pathlib import Path
 
 def i3msg(*command):
     """
@@ -34,26 +35,35 @@ class Webpages:
     Collection of web pages urls
     """
 
-    shimokujob = [
-        "https://shimoku.io/",
-        "https://shimoku.slack.com/",
-        "https://mail.google.com/mail/u/3/",
-        "https://calendar.google.com/u/3",
-        "https://trello.com/",
-    ]
+    job: list[str]
+    tesis: list[str]
 
-    tesis = [
-        "https://github.com/users/diegosanchezp/projects/5/views/2",
-        "https://www.figma.com/file/nH47dX9I5kzjjIdfjAGqMO/Tesis-Wireframe",
-        "~/Documents/django-docs-4.2/index.html",
-    ]
+    def __init__(self):
+        try:
+            file_path = Path.home() / "webpages.json"
+            if not file_path.exists():
+                raise FileNotFoundError("webpages.json not found")
+
+            with file_path.open() as f:
+                link_list = json.load(f)
+
+            self.job = link_list["job"]
+            self.tesis = link_list["tesis"]
+        except RuntimeError as e:
+            print("Home dir not found")
+            raise e
+
+
+
 
 def get_webpages(weekday_num: int, today: time, webpages: Optional[str] = None):
     """
     Get the url webpages for the week
     """
+    webpage_collection = Webpages()
+
     if webpages != None:
-        return Webpages.__dict__[webpages]
+        return webpage_collection.__dict__[webpages]
 
     # Empty array represents a new opened window
     web_pages = []
@@ -62,12 +72,12 @@ def get_webpages(weekday_num: int, today: time, webpages: Optional[str] = None):
 
     # If today is monday to friday, and it's 5am to 2pm
     if its_monday_to_friday and (today.hour >=5 and today.hour <= 14):
-        web_pages = Webpages.shimokujob
+        web_pages = webpage_collection.job
 
     # If today is monday to friday, and it's past 2:30pm
     # open tesis webpages
     if its_monday_to_friday and (today.hour >= 14 and today.minute >=30):
-        web_pages = Webpages.tesis
+        web_pages = webpage_collection.tesis
 
     return web_pages
 
@@ -96,7 +106,9 @@ def parse_args(args = None):
         description="Plot the Super admin workspace"
     )
 
-    choices = set(Webpages.__dict__.keys()) - {'__module__', '__doc__', '__dict__', '__weakref__'}
+    webpage_collection = Webpages()
+
+    choices = set(webpage_collection.__dict__.keys()) - {'__module__', '__doc__', '__dict__', '__weakref__'}
     parser.add_argument(
         "--webpages",
         choices=choices,
