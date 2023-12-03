@@ -19,3 +19,6 @@ i3-msg "workspace 3; exec --no-startup-id obsidian"
 
 # Scratchpad
 bash "$HOME/.config/i3/scratchpad.sh"
+
+# Go back to workspace 1
+i3-msg "workspace 1"

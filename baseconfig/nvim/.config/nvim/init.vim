@@ -64,6 +64,11 @@ map <leader>do :setlocal spell! spelllang=en_us,es<CR>
 :noremap <leader>l :diffget 1<CR>
 :noremap <leader>r :diffget 3<CR>
 
+" Copilot accept suggestion
+
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
 " ==== Vim plug configuration ==== "
 
 " Specify a directory for plugins
@@ -162,8 +167,11 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 
 " Github's Neovim themes 
-
 Plug 'projekt0n/github-nvim-theme'
+
+"  Neovim plugin for GitHub Copilot 
+Plug 'github/copilot.vim'
+
 " Initialize plugin system
 call plug#end()
 
