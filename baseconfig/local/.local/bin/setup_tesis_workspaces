@@ -3,25 +3,25 @@
 WORKSPACE=2
 
 # Create the terminal layout with i3
-i3-msg "workspace $WORKSPACE; append_layout $HOME/.config/i3/workspace-2.json"
+i3-msg "workspace $WORKSPACE; append_layout $HOME/.config/i3/workspace-2.json" && \
 
 
 # First terminal (left one)
 # with the python enviroment loaded
-BASECOMMAND="alacritty --option 'env.tesisdev=True'"
-i3-msg "workspace $WORKSPACE; exec --no-startup-id $BASECOMMAND"
+BASECOMMAND="bash_alacritty.sh"
+i3-msg "workspace $WORKSPACE; exec --no-startup-id $BASECOMMAND" && \
 
 
 # Second terminal (first child to the right)
 # start django
-COMMAND1="${BASECOMMAND} --option 'env.tcommand=runserver'"
-i3-msg "workspace $WORKSPACE; exec --no-startup-id $COMMAND1"
 
+# doesn't works i3-msg doesn't likes the nested comma or something quotes
+
+i3-msg "workspace $WORKSPACE; exec --no-startup-id bash_alacritty.sh runserver" && \
 
 # Third terminal (second child of the right)
 # Start vite
-COMMAND2="${BASECOMMAND} --option 'env.tcommand=pnpm'"
-i3-msg "workspace $WORKSPACE; exec --no-startup-id $COMMAND2"
+i3-msg "workspace $WORKSPACE; exec --no-startup-id bash_alacritty.sh pnpm" && \
 
 
 # Fourth and last terminal
