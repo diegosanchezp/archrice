@@ -1,0 +1,7 @@
+[Unit]
+Description=Battery Monitor Service
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/diego/.local/bin/battery_warning.sh
+[Install]
+WantedBy=multi-user.target

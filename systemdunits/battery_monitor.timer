@@ -1,0 +1,9 @@
+[Unit]
+Description=Battery Monitor Timer
+
+[Timer]
+OnCalendar=minutely
+Unit=battery_monitor.service
+
+[Install]
+WantedBy=timers.target
