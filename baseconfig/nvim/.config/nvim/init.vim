@@ -10,11 +10,11 @@ filetype on
 
 
 " Highlight when searching, then set off after search done
-augroup vimrc-incsearch-highlight
-  autocmd!
-  autocmd CmdlineEnter /,\? :set hlsearch
-  autocmd CmdlineLeave /,\? :set nohlsearch
-augroup END
+" augroup vimrc-incsearch-highlight
+"   autocmd!
+"   autocmd CmdlineEnter /,\? :set hlsearch
+"   autocmd CmdlineLeave /,\? :set nohlsearch
+" augroup END
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -176,12 +176,12 @@ Plug 'github/copilot.vim'
 call plug#end()
 
 " Set colorscheme
-colorscheme github_light_high_contrast
+colorscheme github_dark_high_contrast
 
-let ayucolor="light" " for mirage version of theme
-runtime colors/ayu.vim
-highlight Normal ctermfg=black ctermbg=black
-" let s:fg_comment = "#FFFFFF"
+"let ayucolor="light" " for mirage version of theme
+"runtime colors/ayu.vim
+"highlight Normal ctermfg=black ctermbg=black
+"let s:fg_comment = "#FFFFFF"
 
 "colorscheme ayu
 " ==== closetag.vim: Auto close (X)HTML tags ====
