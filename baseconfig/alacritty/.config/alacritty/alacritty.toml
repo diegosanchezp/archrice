@@ -37,6 +37,11 @@ action = "ResetFontSize"
 key = "R"
 mods = "Alt|Shift"
 
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Q"
+mods = "Alt"
+
 [selection]
 save_to_clipboard = true
 
