@@ -5,21 +5,23 @@ setwall
 
 bash "$HOME/.config/polybar/launch.sh"
 
-i3-msg "workspace 1; append_layout $HOME/.config/i3/workspace-1.json" &&
-
 # Opens browser webpages in workspace 1
+i3-msg "workspace 1; append_layout $HOME/.config/i3/workspace-1.json" &&
 setup_workspace_1.py
 
 # St terminal layout
 bash "$HOME/.config/i3/setup_workspaces_2.sh" &&
 
-i3-msg "workspace 3; append_layout $HOME/.config/i3/workspace-3.json" &&
-
 # Open obsidian
+i3-msg "workspace 3; append_layout $HOME/.config/i3/workspace-3.json" &&
 i3-msg "workspace 3; exec --no-startup-id obsidian" &&
 
-# Scratchpad
+# Scratchpad notes
 bash "$HOME/.config/i3/scratchpad.sh"
 
-# Go back to workspace 1
+# Open gnome system monitor on workspace 4
+i3-msg "workspace 4; append_layout $HOME/.config/i3/workspace-4.json" &&
+i3-msg "workspace 4; exec --no-startup-id gnome-system-monitor --show-resources-tab" &&
+
+# Go back to workspace 1 for browsing
 i3-msg "workspace 1"
