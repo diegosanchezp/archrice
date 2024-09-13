@@ -23,14 +23,14 @@
                "y": 0
             },
             "marks": ["start_on_scratch"],
-            "name": "Alacritty",
+            "name": "Notes",
             "percent": 1,
             "swallows": [
                {
                    "class": "^Alacritty$",
                    "instance": "^Alacritty$",
                    "machine": "^lenovo$",
-                   "title": "^Alacritty$"
+                   "title": "^Notes$"
                }
             ],
             "type": "con"
