@@ -1,7 +1,7 @@
 import = ["/home/diego/.config/alacritty/themes/themes/github_light.toml"]
 
 [font]
-size = 13.0
+size = 12.0
 
 [font.normal]
 family = "JetBrains Mono"
@@ -39,7 +39,7 @@ mods = "Alt|Shift"
 
 [[keyboard.bindings]]
 action = "ToggleViMode"
-key = "Q"
+key = "D"
 mods = "Alt"
 
 [selection]
