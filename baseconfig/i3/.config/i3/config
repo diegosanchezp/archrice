@@ -88,7 +88,7 @@ bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindsym $mod+Shift+u exec dmenuunicode
 
 ## Session // Lock and turn off Screen // <> Escape ##
-bindsym $mod+Escape exec i3lock -c 000000 && xset dpms force off
+bindsym $mod+Shift+Escape exec dm-tool lock
 bindsym $mod+Shift+b exec xset dpms force off
 
 ## Launch // Browser // <> w ##
