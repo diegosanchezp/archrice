@@ -1,5 +1,4 @@
 local utils = require("utils")
-
 -- Install plugin manager
 -- utils.install_packer()
 
@@ -40,26 +39,25 @@ telescope.setup {
   },
 }
 vim.o.completeopt = "menuone,noselect"
-vim.o.background = "dark"
 
 -- active the theme call this in your neovim config
 -- local pywal = require('pywal')
 
 -- pywal.setup()
-require("transparent").setup({
-  extra_groups = { -- table/string: additional groups that should be clear
-    -- In particular, when you set it to 'all', that means all avaliable groups
-
-    -- example of akinsho/nvim-bufferline.lua
-    "BufferLineTabClose",
-    "BufferlineBufferSelected",
-    "BufferLineFill",
-    "BufferLineBackground",
-    "BufferLineSeparator",
-    "BufferLineIndicatorSelected",
-  },
-  exclude_groups = {}, -- table: groups you don't want to clear
-})
+-- require("transparent").setup({
+--   extra_groups = { -- table/string: additional groups that should be clear
+--     -- In particular, when you set it to 'all', that means all avaliable groups
+--
+--     -- example of akinsho/nvim-bufferline.lua
+--     "BufferLineTabClose",
+--     "BufferlineBufferSelected",
+--     "BufferLineFill",
+--     "BufferLineBackground",
+--     "BufferLineSeparator",
+--     "BufferLineIndicatorSelected",
+--   },
+--   exclude_groups = {}, -- table: groups you don't want to clear
+-- })
 require('nvim_comment').setup()
 
 --Enable (broadcasting) snippet capability for completion
@@ -104,7 +102,7 @@ local lspconfig = require('lspconfig')
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'svelte', 'tsserver', 'cssls', 'bashls', "pyright" }
+local servers = { 'svelte', 'ts_ls', 'cssls', 'bashls', "pyright" }
 
 -- Setup lspconfig.
 for _, lsp in ipairs(servers) do

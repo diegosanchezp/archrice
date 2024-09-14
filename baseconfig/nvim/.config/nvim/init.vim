@@ -176,15 +176,14 @@ Plug 'github/copilot.vim'
 call plug#end()
 
 " Set colorscheme
-" colorscheme github_dark
-" set background=light
+colorscheme github_light_tritanopia
 
 "let ayucolor="light" " for mirage version of theme
 "runtime colors/ayu.vim
 "highlight Normal ctermfg=black ctermbg=black
 "let s:fg_comment = "#FFFFFF"
 
-"colorscheme ayu
+" colorscheme ayu
 " ==== closetag.vim: Auto close (X)HTML tags ====
 
 
@@ -231,14 +230,14 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 autocmd! FileType TelescopeResults setlocal nofoldenable
 
 " ==== Vim telescope mappings using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " Deprecated i don't use this, substituted by lspsymbols
 " nnoremap <leader>fs <cmd>lua require('telescope.builtin').git_status()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
-
+nnoremap <leader>fm <cmd>lua require('telescope.builtin').man_pages()<cr>
 nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
 
 
