@@ -129,7 +129,7 @@ Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'simrat39/symbols-outline.nvim'
 
 " ====  Modern theme for modern VIMs  ====
-Plug 'ayu-theme/ayu-vim' " or other package manager
+" Plug 'ayu-theme/ayu-vim' " or other package manager
 
 Plug 'glench/vim-jinja2-syntax'
 
@@ -150,14 +150,14 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
 
 "
-Plug 'xiyaowong/nvim-transparent', {'as': 'transparent'}
+" Plug 'xiyaowong/nvim-transparent', {'as': 'transparent'}
 
 " PlantUML
 Plug 'tyru/open-browser.vim'
 Plug 'aklt/plantuml-syntax'
 Plug 'weirongxu/plantuml-previewer.vim'
 
-" markdown preview plugin for (neo)vim 
+" markdown preview plugin for (neo)vim
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 " The undo history visualizer for VIM 
@@ -176,7 +176,8 @@ Plug 'github/copilot.vim'
 call plug#end()
 
 " Set colorscheme
-colorscheme github_dark_high_contrast
+" colorscheme github_dark
+" set background=light
 
 "let ayucolor="light" " for mirage version of theme
 "runtime colors/ayu.vim

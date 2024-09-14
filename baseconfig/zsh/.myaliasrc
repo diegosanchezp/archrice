@@ -1,5 +1,5 @@
 alias todo='nvim $TODO'
-alias v=nvim
+alias v='nvim -c ":colorscheme github_light_tritanopia"'
 alias lz=lazygit
 alias pd=pushd
 alias yt-mp3='yt-dlp --config-location ~/.config/youtube-dl/yt-mp3.conf'
