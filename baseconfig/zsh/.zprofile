@@ -18,6 +18,8 @@ export PATH
 
 export SUDO_EDITOR=nvim
 export EDITOR=nvim
+export MANPAGER='nvim +Man!'
+export PAGER='nvim -c "set ft=help" -'
 export OPENER=xdg-open
 # change later to /opt/nvm
 export NVM_DIR="/home/diego/.nvm"
@@ -27,3 +29,4 @@ export GID=$(id -g)
 [ -f "$HOME/.local_zprofile" ] && source "$HOME/.local_zprofile"
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
