@@ -1,15 +1,14 @@
 alias todo='nvim $TODO'
 alias v=nvim
 alias lz=lazygit
+# Override ls default output
+alias ls='ls --human-readable --indicator-style=slash --group-directories-first'
+alias lst='ls -lt'
 alias pd=pushd
 alias yt-mp3='yt-dlp --config-location ~/.config/youtube-dl/yt-mp3.conf'
 alias youtube-dl='yt-dlp --config-location ~/.config/youtube-dl/yt-dl.conf'
 alias luamake=/home/diego/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake
 alias androidscreen='scrcpy -d --keyboard=uhid --mouse=uhid'
-
-help(){
-  "$@" --help | less
-}
 
 # open a document, like pdf, .xsl
 openfile(){
@@ -49,5 +48,10 @@ lastcpy(){
 }
 
 help(){
- "$@" --help | nvim -R -c "set foldmethod=manual" -c "set ft=help"
+ "$@" --help | nvim -R -c "set foldmethod=manual" -c "set ft=help" -
+}
+
+# for commands like poetry list
+page(){
+  "$@" | nvim -R -c "set foldmethod=manual" -c "set ft=help"
 }
