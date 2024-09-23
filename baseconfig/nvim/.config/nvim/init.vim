@@ -240,6 +240,9 @@ nnoremap <leader>fs <cmd>lua require('telescope.builtin').lsp_document_symbols()
 nnoremap <leader>fm <cmd>lua require('telescope.builtin').man_pages()<cr>
 nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
 
+" Search oldfiles that were opened in the current working directory
+nnoremap <leader>cfo <cmd>lua require('telescope.builtin').oldfiles({cwd = vim.fn.getcwd()})<cr>
+
 
 set dictionary+=/usr/share/dict/spanish,/usr/share/dict/words
 
