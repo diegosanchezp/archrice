@@ -19,7 +19,7 @@ export PATH
 export SUDO_EDITOR=nvim
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
-export PAGER='nvim -R -c "set ft=help"'
+# export PAGER='nvim -R -c "set ft=help"'
 export OPENER=xdg-open
 # change later to /opt/nvm
 export NVM_DIR="/home/diego/.nvm"
