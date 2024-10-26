@@ -1,3 +1,4 @@
+[general]
 import = ["/home/diego/.config/alacritty/themes/themes/github_light.toml"]
 
 [font]
