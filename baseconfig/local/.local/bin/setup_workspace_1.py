@@ -37,6 +37,7 @@ class Webpages:
 
     job: list[str]
     tesis: list[str]
+    finances: list[str]
 
     def __init__(self):
         try:
@@ -49,6 +50,8 @@ class Webpages:
 
             self.job = link_list["job"]
             self.tesis = link_list["tesis"]
+            self.finances = link_list["finances"]
+
         except RuntimeError as e:
             print("Home dir not found")
             raise e
@@ -72,7 +75,7 @@ def get_webpages(weekday_num: int, today: time, webpages: Optional[str] = None):
 
     # If today is monday to friday, and it's 5am to 2pm
     if its_monday_to_friday and (today.hour >=5 and today.hour <= 14):
-        web_pages = webpage_collection.tesis
+        web_pages = webpage_collection.finances
 
     # If today is monday to friday, and it's past 2:30pm
     # open tesis webpages
