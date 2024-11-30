@@ -102,7 +102,7 @@ Plug  'terrortylor/nvim-comment'
 " Quickstart configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp-status.nvim'
-Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/plenary.nvim' " required by obsidian.nvim and other plugins
 Plug 'nvim-telescope/telescope.nvim'
 
 " === Snippets plugin ===
@@ -123,6 +123,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'simrat39/symbols-outline.nvim'
+
 
 " ====  Modern theme for modern VIMs  ====
 " Plug 'ayu-theme/ayu-vim' " or other package manager
@@ -164,6 +165,9 @@ Plug 'tpope/vim-surround'
 
 " Github's Neovim themes 
 Plug 'projekt0n/github-nvim-theme'
+
+" Obsidian nvim integration
+Plug 'epwalsh/obsidian.nvim'
 
 " Initialize plugin system
 call plug#end()
