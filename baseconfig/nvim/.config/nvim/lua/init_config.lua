@@ -183,6 +183,10 @@ require("obsidian").setup({
         name = "personal",
         path = "~/Documents/ObsidianVaults/diegos-knowledge/",
       },
+      {
+        name = "personal-smartphone",
+        path = "~/Documents/obsidian-smartphone-notes",
+      },
     },
 
     picker = {
