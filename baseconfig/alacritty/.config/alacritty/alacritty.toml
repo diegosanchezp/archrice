@@ -49,3 +49,6 @@ save_to_clipboard = true
 [window]
 decorations_theme_variant = "Light"
 dynamic_title = true
+
+# Spread additional padding evenly around the terminal content.
+dynamic_padding = true
