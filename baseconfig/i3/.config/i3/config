@@ -91,8 +91,8 @@ bindsym $mod+Shift+u exec dmenuunicode
 bindsym $mod+Shift+Escape exec dm-tool lock
 bindsym $mod+Shift+b exec xset dpms force off
 
-## Launch // Browser // <> w ##
-bindsym $mod+w exec gtk-launch $(xdg-settings get default-web-browser)
+## Launch window selector <> w ##
+bindsym $mod+w exec winmenu.py
 
 ## Launch // File Browser // <> n ##
 bindsym $mod+n exec pcmanfm
