@@ -1,4 +1,4 @@
-#!/home/diego/.cache/pypoetry/virtualenvs/i3-NlCHgMkT-py3.12/bin/python3
+#!/home/diego/.cache/pypoetry/virtualenvs/i3-NlCHgMkT-py3.13/bin/python
 
 # dmenu script to jump to windows in i3.
 # https://github.com/ziberna/i3-py/blob/master/examples/winmenu.py
