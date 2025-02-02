@@ -1,0 +1,11 @@
+[Unit]
+Description=Anki Sync Server
+After=network.target
+
+[Service]
+EnvironmentFile=%h/.syncserver/.env
+ExecStart=/usr/bin/anki --syncserver
+Restart=always
+
+[Install]
+WantedBy=default.target
