@@ -21,7 +21,7 @@ bash "$HOME/.config/i3/scratchpad.sh"
 
 # Open gnome system monitor on workspace 4
 i3-msg "workspace 4; append_layout $HOME/.config/i3/workspace-4.json" &&
-i3-msg "workspace 4; exec --no-startup-id alacritty --title \"htop\" -e zsh -c \"htop && exec zsh\"" &&
+i3-msg "workspace 4; exec --no-startup-id gnome-system-monitor --show-resources-tab" &&
 
 # Go back to workspace 1 for browsing
 i3-msg "workspace 1"
