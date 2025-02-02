@@ -224,6 +224,3 @@ require("obsidian").setup({
     end,
 })
 
--- obsidian.nvim char concealling
--- https://github.com/epwalsh/obsidian.nvim?tab=readme-ov-file#concealing-characters
-vim.opt.conceallevel = 1
