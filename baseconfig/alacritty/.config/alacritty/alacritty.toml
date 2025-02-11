@@ -56,3 +56,15 @@ dynamic_title = true
 
 # Spread additional padding evenly around the terminal content.
 dynamic_padding = true
+
+# --- Enhance visibility of the cursor in VI mode ---
+
+[colors.vi_mode_cursor]
+text = "CellForeground"
+# Add red color to the cursor so it can be distinguished
+cursor = "#e30909" 
+
+[cursor.vi_mode_style]
+blinking = "On"
+# Beam is the default which is hard to see
+shape = "Block"
