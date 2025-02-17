@@ -214,6 +214,9 @@ let g:vimtex_view_method = 'zathura'
 let g:airline_powerline_fonts = 1
 let g:airline_detect_spell=1
 let g:airline#extensions#branch#format = 2
+" disable word counting of the document/visual selection
+let g:airline#extensions#wordcount#enabled = 0
+
 " ====  React JSX syntax highlighting for vim and Typescript  ====
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
