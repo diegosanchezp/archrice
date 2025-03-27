@@ -77,11 +77,6 @@ def get_webpages(weekday_num: int, today: time, webpages: Optional[str] = None):
     if its_monday_to_friday and (today.hour >=5 and today.hour <= 14):
         web_pages = webpage_collection.finances
 
-    # If today is monday to friday, and it's past 2:30pm
-    # open tesis webpages
-    if its_monday_to_friday and (today.hour >= 14 and today.minute >=30):
-        web_pages = webpage_collection.tesis
-
     return web_pages
 
 def open_webpages(web_pages: list[str]):
