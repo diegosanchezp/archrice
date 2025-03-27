@@ -3,13 +3,13 @@
 WORKSPACE=2
 
 # Create the terminal layout with i3
-i3-msg "workspace $WORKSPACE; append_layout $HOME/.config/i3/workspace-2.json" && \
+i3-msg "workspace $WORKSPACE; append_layout $HOME/.config/i3/tesis-workspace.json" && \
 
 
 # First terminal (left one)
 # with the python enviroment loaded
 BASECOMMAND="bash_alacritty.sh"
-i3-msg "workspace $WORKSPACE; exec --no-startup-id $BASECOMMAND" && \
+i3-msg "workspace $WORKSPACE; exec --no-startup-id $BASECOMMAND --title tesis-nvim" && \
 
 
 # Second terminal (first child to the right)
@@ -17,13 +17,13 @@ i3-msg "workspace $WORKSPACE; exec --no-startup-id $BASECOMMAND" && \
 
 # doesn't works i3-msg doesn't likes the nested comma or something quotes
 
-i3-msg "workspace $WORKSPACE; exec --no-startup-id bash_alacritty.sh runserver" && \
+i3-msg "workspace $WORKSPACE; exec --no-startup-id bash_alacritty.sh runserver --title django-server" && \
 
 # Third terminal (second child of the right)
 # Start vite
-i3-msg "workspace $WORKSPACE; exec --no-startup-id bash_alacritty.sh pnpm" && \
+i3-msg "workspace $WORKSPACE; exec --no-startup-id bash_alacritty.sh pnpm --title pnpm-run-dev" && \
 
 
 # Fourth and last terminal
 # with the python enviroment loaded
-i3-msg "workspace $WORKSPACE; exec --no-startup-id $BASECOMMAND"
+i3-msg "workspace $WORKSPACE; exec --no-startup-id $BASECOMMAND --title tesis-terminal"
