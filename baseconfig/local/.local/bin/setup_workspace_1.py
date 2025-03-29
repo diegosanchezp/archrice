@@ -73,8 +73,8 @@ def get_webpages(weekday_num: int, today: time, webpages: Optional[str] = None):
 
     its_monday_to_friday = (weekday_num >= 0 and weekday_num <=4)
 
-    # If today is monday to friday, and it's 5am to 2pm
-    if its_monday_to_friday and (today.hour >=5 and today.hour <= 14):
+    # If today is monday to friday, and it's 5am to 6pm
+    if its_monday_to_friday and (today.hour >=5 and today.hour <= 18):
         web_pages = webpage_collection.finances
 
     return web_pages
