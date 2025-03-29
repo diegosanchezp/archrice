@@ -55,3 +55,8 @@ help(){
 page(){
   "$@" | nvim -R -c "set foldmethod=manual" -c "set ft=help"
 }
+
+# changes alacritty window title
+change_title(){
+  alacritty msg config "window.title='${1}'"
+}
