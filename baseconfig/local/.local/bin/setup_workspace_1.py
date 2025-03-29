@@ -91,7 +91,8 @@ def open_webpages(web_pages: list[str]):
 
     # return is useful for unit tests
     return i3msg(
-        "exec gtk-launch $(xdg-settings get default-web-browser)",
+        "exec firefox",
+        # "exec gtk-launch $(xdg-settings get default-web-browser)",
         *web_pages,
     )
 
@@ -117,6 +118,7 @@ def parse_args(args = None):
 
     return args
 
+# setup_workspace_1.py --webpages finances
 if __name__ == "__main__":
 
     # week_names = list(calendar.day_name)
