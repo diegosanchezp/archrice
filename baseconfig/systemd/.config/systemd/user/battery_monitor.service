@@ -2,6 +2,6 @@
 Description=Battery Monitor Service
 [Service]
 Type=oneshot
-ExecStart=/bin/bash /home/diego/.local/bin/battery_warning.sh
+ExecStart=%h/.local/bin/battery_warning.py
 [Install]
 WantedBy=multi-user.target
