@@ -22,31 +22,25 @@ class TestSetupWorkspace1(unittest.TestCase):
     # python -m unittest test_setup_workspace_1.TestSetupWorkspace1.test_get_webpages
     def test_get_webpages(self):
 
-        # Should open job webpages
+        # Should open finances webpages
         self.assertEqual(
             # Monday 5:30am
             get_webpages(0, time(hour=5,minute=30)),
-            self.webpages.job,
+            self.webpages.finances,
         )
 
-        self.assertEqual(
-            # Friday 12m
-            get_webpages(4, time(hour=12,minute=0)),
-            self.webpages.job,
-        )
-
-        # Should open tesis webpages
+        # If it is friday, opens finances + supermarket webpages
         self.assertEqual(
             # Friday 2:30pm
             get_webpages(4, time(hour=14,minute=30)),
-            self.webpages.tesis,
+            self.webpages.finances + self.webpages.supermarkets,
         )
 
-        # On weekends doesn't opens any webpage
+        # On weekends opens finances webpages
         self.assertEqual(
             # Friday 2:30pm
             get_webpages(6, time(hour=14,minute=30)),
-            [],
+            self.webpages.finances,
         )
 
 
