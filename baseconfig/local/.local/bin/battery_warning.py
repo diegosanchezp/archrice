@@ -2,11 +2,11 @@
 
 import argparse
 import logging
-import subprocess
 import tempfile
 import dbus
 from pathlib import Path
 import sys
+from typing import Any
 
 
 # See The "State" property on https://upower.freedesktop.org/docs/Device.html#Device.properties
@@ -105,23 +105,72 @@ def write_current_level(filepath: Path, level: int) -> None:
         logging.error(f"Failed to write current level to {filepath}: {e}")
 
 
-def send_notification(level: int, drop: int):
+def send_notification(
+    app_name: str,
+    replaces_id: int,
+    app_icon: str,
+    summary: str,
+    body: str,
+    actions: list[str],
+    hints: dict[str, Any],
+    expire_timeout: int,
+    bus: dbus.SessionBus | None = None, 
+):
+    """Sends a desktop notification
+    
+    Args:
+        bus: D-Bus session bus connection
+        app_name: Name of the application sending the notification
+        replaces_id: Replaces existing notification with this ID (0 means create new)
+        app_icon: Icon name or path (empty string for no icon)
+        summary: Summary/title of the notification
+        body: Body text of the notification
+        actions: List of actions (empty list for no actions)
+        hints: Dictionary of hints (empty dict for no hints)
+        expire_timeout: Time in milliseconds before notification expires
+    """
+
+    # Get dbus session if none is passed
+    if bus is None:
+        bus = dbus.SessionBus()
+
+    # Get the Notifications object
+    notifications = bus.get_object('org.freedesktop.Notifications', '/org/freedesktop/Notifications')
+
+    # Create an interface to interact with the Notifications object
+    interface = dbus.Interface(notifications, 'org.freedesktop.Notifications')
+
+    # Send a notification
+    notification_id = interface.Notify(
+        app_name,
+        replaces_id,
+        app_icon,
+        summary,
+        body,
+        actions,
+        hints,
+        expire_timeout
+    )
+
+def send_warning_notification(level: int, drop: int):
     """Sends a desktop notification about the battery level drop."""
-    message = f"Your battery level has dropped by at least {drop}% to {level}%. Please connect your charger."
-    command = [
-        'notify-send',
-        '--urgency', 'critical',
-        '--expire-time', '600000', # 10 minutes
-        'Battery Low',
-        message
-    ]
+    summary = "Battery Low"
+    body = f"Your battery level has dropped by at least {drop}% to {level}%. Please connect your charger."
+    
     try:
-        subprocess.run(command, check=True)
+        send_notification(
+            app_name="Battery Warning",
+            replaces_id=0,  # Create new notification
+            app_icon="battery-low",  # Standard battery icon
+            summary=summary,
+            body=body,
+            actions=[],  # No actions needed
+            hints={
+                "urgency": dbus.Byte(2)  # 2 = Critical urgency
+            },
+            expire_timeout=600000  # 10 minutes in milliseconds
+        )
         logging.info(f"Sent notification for battery level {level}%")
-    except FileNotFoundError:
-        logging.error("Error: 'notify-send' command not found. Cannot send notification.")
-    except subprocess.CalledProcessError as e:
-        logging.error(f"Error sending notification: {e}")
     except Exception as e:
         logging.error(f"An unexpected error occurred during notification: {e}")
 
@@ -167,7 +216,7 @@ def main():
         # Only notify if the level has actually decreased by the threshold or more
         if level_difference >= args.threshold:
             logging.info(f"Battery level dropped by {level_difference}% (>= threshold {args.threshold}%).")
-            send_notification(current_level, args.threshold)
+            send_warning_notification(current_level, args.threshold)
             # Update the state file only after a significant drop notification
             write_current_level(previous_level_file, current_level)
         elif current_level != previous_level:
