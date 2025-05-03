@@ -1,0 +1,13 @@
+{
+  "baseFontSize": 20,
+  "accentColor": "#18af2a",
+  "theme": "system",
+  "interfaceFontFamily": "JetBrainsMono Nerd Font Propo,JetBrains Mono",
+  "showRibbon": true,
+  "textFontFamily": "Bodoni 72,Source Code Pro",
+  "monospaceFontFamily": "Source Code Pro",
+  "enabledCssSnippets": [
+    "custom-tasks"
+  ],
+  "cssTheme": "Kakano"
+}
