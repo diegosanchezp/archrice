@@ -283,3 +283,44 @@ require("obsidian").setup({
     end,
 })
 
+require('mini.surround').setup({
+
+    custom_surroundings = {
+      -- Make `)` insert parts with spaces. `input` pattern stays the same.
+      [')'] = { output = { left = '(', right = ')' } },
+      ['('] = { output = { left = '(', right = ')' } },
+
+      -- Use function to compute surrounding info
+      ['*'] = {
+        input = function()
+          -- Default to 2 stars if in markdown file, otherwise 1
+          local default_stars = vim.bo.filetype == 'markdown' and 2 or 1
+          local prompt = 'Number of * to find (' .. default_stars .. ' default)'
+          local n_star = MiniSurround.user_input(prompt) or tostring(default_stars)
+          local many_star = string.rep('%*', tonumber(n_star) or default_stars)
+          return { many_star .. '().-()' .. many_star }
+        end,
+        output = function()
+          -- Default to 2 stars if in markdown file, otherwise 1
+          local default_stars = vim.bo.filetype == 'markdown' and 2 or 1
+          local prompt = 'Number of * to output (' .. default_stars .. ' default)'
+          local n_star = MiniSurround.user_input(prompt) or tostring(default_stars)
+          local many_star = string.rep('*', tonumber(n_star) or default_stars)
+          return { left = many_star, right = many_star }
+        end,
+      },
+    },
+    mappings = {
+      add = 'sa', -- Add surrounding in Normal and Visual modes
+      delete = 'sd', -- Delete surrounding
+      find = 'sf', -- Find surrounding (to the right)
+      find_left = 'sF', -- Find surrounding (to the left)
+      highlight = 'sh', -- Highlight surrounding
+      replace = 'sr', -- Replace surrounding
+      update_n_lines = 'sn', -- Update `n_lines`
+
+      suffix_last = 'l', -- Suffix to search with "prev" method
+      suffix_next = 'n', -- Suffix to search with "next" method
+    },
+})
+

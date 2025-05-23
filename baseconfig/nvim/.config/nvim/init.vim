@@ -160,8 +160,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " The undo history visualizer for VIM 
 Plug 'mbbill/undotree'
 
-" surround.vim: Delete/change/add parentheses/quotes/XML-tags/much more with ease 
-Plug 'tpope/vim-surround'
+" Neovim Lua plugin with fast and feature-rich surround actions. Part of 'mini.nvim' library. 
+Plug 'echasnovski/mini.nvim'
 
 " Github's Neovim themes 
 Plug 'projekt0n/github-nvim-theme'
