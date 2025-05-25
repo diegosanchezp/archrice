@@ -17,3 +17,6 @@ map('n', '<leader>toc', ':ObsidianTOC<CR>', {noremap = true})
 
 -- ,sn: search notes
 map('n', '<leader>sn', ':ObsidianSearch<CR>', {noremap = true})
+
+-- ,sy: opens SymbolsOutline and then opens all folds (like zR)
+map('n', '<leader>sy', ':SymbolsOutline<CR>:normal! zR<CR>', { noremap = true, silent = true })
