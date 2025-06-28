@@ -15,14 +15,6 @@
       "key": "N"
     }
   ],
-  "app:toggle-left-sidebar": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "S"
-    }
-  ],
   "editor:focus-left": [
     {
       "modifiers": [
@@ -57,15 +49,6 @@
       "key": "O"
     }
   ],
-  "app:toggle-right-sidebar": [
-    {
-      "modifiers": [
-        "Alt",
-        "Shift"
-      ],
-      "key": "S"
-    }
-  ],
   "obsidian-git:push2": [],
   "obsidian-git:pull": [
     {
@@ -83,6 +66,23 @@
         "Mod"
       ],
       "key": "X"
+    }
+  ],
+  "app:toggle-left-sidebar": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "S"
+    }
+  ],
+  "app:toggle-right-sidebar": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "S"
     }
   ]
 }
