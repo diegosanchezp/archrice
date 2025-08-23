@@ -95,7 +95,6 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
 end
 
 local lspconfig = require('lspconfig')
@@ -104,6 +103,8 @@ local lspconfig = require('lspconfig')
 -- map buffer local keybindings when the language server attaches
 local servers = { 'svelte', 'ts_ls', 'cssls', 'bashls', "pyright" }
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jsonls
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Setup lspconfig.
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -118,63 +119,33 @@ lspconfig.html.setup {
   filetypes = { "html", "htmldjango", "jinja.html" },
 }
 
-lspconfig.yamlls.setup {
+-- Enable language servers for schemas, to have docker, cloudformation, github actinons yaml syntax support
 
-  on_attach = on_attach,
-  capabilities = capabilities,
+vim.lsp.enable('jsonls')
+vim.lsp.enable('yamlls')
 
+require('lspconfig').jsonls.setup {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+}
+
+require('lspconfig').yamlls.setup {
   settings = {
     yaml = {
-      validate = true,
-      format = {
-        enable = true,
-      },
-      hover = true,
-      completion = true,
-      maxItemsComputed = 15000,
-      -- Disable the default schema store
       schemaStore = {
         -- You must disable built-in schemaStore support if you want to use
-          -- this plugin and its advanced options like `ignore`.
-          enable = false,
-          -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-          url = "",
+        -- this plugin and its advanced options like `ignore`.
+        enable = false,
+        -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+        url = "",
       },
-      -- schemas = require('schemastore').yaml.schemas {
-      --   select = {
-      --     'AWS CloudFormation',
-      --     'package.json',
-      --     "GitHub Action",
-      --   },
-      -- },
-      -- Manually specify schemas
-      schemas = {
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-        -- Doesnt works
-        ["https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"] = {"**/template.{yml,yaml}", "/*.cf.yml", "*.cf.yaml"}
-      },
-      customTags = {
-        "!fn",
-        "!And",
-        "!If",
-        "!Not",
-        "!Equals",
-        "!Or",
-        "!FindInMap sequence",
-        "!Base64",
-        "!Cidr",
-        "!Ref",
-        "!Ref Scalar",
-        "!Sub",
-        "!GetAtt",
-        "!GetAZs",
-        "!ImportValue",
-        "!Select",
-        "!Split",
-        "!Join sequence"
-      },
-    }
-  }
+      schemas = require('schemastore').yaml.schemas(),
+    },
+  },
 }
 
 -- A tree like view for symbols in Neovim using the Language Server Protocol
@@ -183,7 +154,8 @@ require("symbols-outline").setup()
 local cmp = require 'cmp'
 
 local luasnip = require 'luasnip'
-require("luasnip.loaders.from_vscode").lazy_load()
+-- Load VSCode CloudFormation snippets
+require("luasnip.loaders.from_vscode").lazy_load({paths={"~/vscode-cloudformation-snippets"}})
 
 cmp.setup {
   snippet = {
@@ -329,4 +301,3 @@ require('mini.surround').setup({
       suffix_next = 'n', -- Suffix to search with "next" method
     },
 })
-

@@ -169,6 +169,9 @@ Plug 'projekt0n/github-nvim-theme'
 " Obsidian nvim integration
 Plug 'epwalsh/obsidian.nvim'
 
+" JSON, yaml schemas for Neovim (docker-compose, github actions, cloudformation templates)
+Plug 'b0o/schemastore.nvim'
+
 " Initialize plugin system
 call plug#end()
 
