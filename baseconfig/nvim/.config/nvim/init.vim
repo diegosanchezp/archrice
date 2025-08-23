@@ -185,7 +185,7 @@ colorscheme github_light_tritanopia
 
 
 " configure the vim-closetag plugin to work inside html template literals
-let g:closetag_filetypes = 'html,xhtml,phtml,javascript,typescript'
+let g:closetag_filetypes = 'xml,html,xhtml,phtml,javascript,typescript'
 let g:closetag_regions = {
       \ 'typescript.tsx': 'jsxRegion,tsxRegion,litHtmlRegion',
       \ 'javascript.jsx': 'jsxRegion,litHtmlRegion',
