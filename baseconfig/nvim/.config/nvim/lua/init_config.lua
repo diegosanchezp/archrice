@@ -60,9 +60,6 @@ vim.o.completeopt = "menuone,noselect"
 -- })
 require('nvim_comment').setup()
 
---Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Mappings.
 local opts = { noremap=true, silent=true }
@@ -99,41 +96,48 @@ end
 
 local lspconfig = require('lspconfig')
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'svelte', 'ts_ls', 'cssls', 'bashls', "pyright" }
+
+vim.lsp.enable('pyright')
+vim.lsp.enable('bashls')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('cssls')
+-- vim.lsp.enable('svelte')
+vim.lsp.enable('html')
+
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- I don't know if nvim_cmp is needed for nvim v11
+-- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jsonls
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#html
 capabilities.textDocument.completion.completionItem.snippetSupport = true
--- Setup lspconfig.
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
 
-lspconfig.html.setup {
-  on_attach = on_attach,
+vim.lsp.config("*", {
   capabilities = capabilities,
-  filetypes = { "html", "htmldjango", "jinja.html" },
-}
+  on_attach = on_attach
+})
+
+vim.lsp.config('html', {
+  capabilities = capabilities,
+  filetypes = { "html", "templ", "htmldjango", "jinja.html" },
+})
 
 -- Enable language servers for schemas, to have docker, cloudformation, github actinons yaml syntax support
 
 vim.lsp.enable('jsonls')
 vim.lsp.enable('yamlls')
 
-require('lspconfig').jsonls.setup {
+vim.lsp.config('jsonls', {
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
       validate = { enable = true },
     },
   },
-}
+})
 
-require('lspconfig').yamlls.setup {
+vim.lsp.config('yamlls', {
   settings = {
     yaml = {
       schemaStore = {
@@ -146,7 +150,7 @@ require('lspconfig').yamlls.setup {
       schemas = require('schemastore').yaml.schemas(),
     },
   },
-}
+})
 
 -- A tree like view for symbols in Neovim using the Language Server Protocol
 require("symbols-outline").setup()
@@ -154,23 +158,26 @@ require("symbols-outline").setup()
 local cmp = require 'cmp'
 
 local luasnip = require 'luasnip'
+-- Load friendly-snippets
+require("luasnip.loaders.from_vscode").lazy_load()
+
 -- Load VSCode CloudFormation snippets
-require("luasnip.loaders.from_vscode").lazy_load({paths={"~/vscode-cloudformation-snippets"}})
+require("luasnip.loaders.from_vscode").lazy_load({
+  paths={"~/vscode-cloudformation-snippets"},
+  exclude = {"yaml.docker-compose"}
+})
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body)
+      luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -207,6 +214,18 @@ require'lspconfig'.phpactor.setup{
         ["language_server_psalm.enabled"] = false,
     }
 }
+
+-- Define your odoo LSP config
+vim.lsp.config('odoo_lsp', {
+  name = 'odoo-lsp',
+  cmd = { 'odoo-lsp' },
+  filetypes = { 'javascript', 'xml', 'python' },
+  root_makers = {
+    '.odoo_lsp', '.odoo_lsp.json', '.git'
+  },
+  on_attach = on_attach,
+})
+vim.lsp.enable('odoo_lsp')
 
 require("obsidian").setup({
     workspaces = {
