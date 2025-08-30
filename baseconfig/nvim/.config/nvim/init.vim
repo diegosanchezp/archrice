@@ -106,7 +106,9 @@ Plug 'nvim-lua/plenary.nvim' " required by obsidian.nvim and other plugins
 Plug 'nvim-telescope/telescope.nvim'
 
 " === Snippets plugin ===
-Plug 'L3MON4D3/LuaSnip'
+" follow latest release and install jsregexp.
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
+
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 
