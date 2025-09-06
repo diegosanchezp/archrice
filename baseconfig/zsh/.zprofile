@@ -12,6 +12,7 @@ append_path () {
 append_path ~/.npm-global/bin
 append_path "$HOME/.poetry/bin"
 append_path "$HOME/.local/bin"
+append_path "$HOME/go/bin"
 
 # Force PATH to be environment
 export PATH
