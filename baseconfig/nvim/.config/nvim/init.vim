@@ -124,8 +124,9 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'simrat39/symbols-outline.nvim'
 
+" A sidebar with a tree-like outline of symbols from your code, powered by LSP.
+Plug 'hedyhli/outline.nvim'
 
 " ====  Modern theme for modern VIMs  ====
 " Plug 'ayu-theme/ayu-vim' " or other package manager
@@ -173,6 +174,10 @@ Plug 'epwalsh/obsidian.nvim'
 
 " JSON, yaml schemas for Neovim (docker-compose, github actions, cloudformation templates)
 Plug 'b0o/schemastore.nvim'
+
+" LSP folds in nvim
+Plug 'kevinhwang91/nvim-ufo'
+Plug 'kevinhwang91/promise-async'
 
 " Initialize plugin system
 call plug#end()
@@ -233,6 +238,7 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 " https://github.com/nvim-telescope/telescope.nvim/issues/991
 autocmd! FileType TelescopeResults setlocal nofoldenable
+" autocmd FileType Outline setlocal nofoldenable
 
 " ==== Vim telescope mappings using Lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>

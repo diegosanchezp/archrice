@@ -34,7 +34,11 @@ o.relativenumber = true
 o.number = true
 
 opt.clipboard:append {"unnamedplus"}
-o.foldmethod = "indent"
+
+o.foldcolumn = '1' -- '0' is not bad
+o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+o.foldlevelstart = 99 -- start all folds closed when opening a file
+o.foldenable = true -- enable folding
 
 -- Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 
