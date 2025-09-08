@@ -35,10 +35,14 @@ o.number = true
 
 opt.clipboard:append {"unnamedplus"}
 
-o.foldcolumn = '1' -- '0' is not bad
-o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-o.foldlevelstart = 99 -- start all folds closed when opening a file
+-- setting auto will remove the annoying random number on foldcolumn, if there is less than 9 levels of folding, for more, than 9, numbers will start to appear again. It also adjusts the foldcolumn size/width accordingly
+-- o.foldcolumn = 'auto:9'
+-- o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]] -- This works only if foldcolumn is enabled
 o.foldenable = true -- enable folding
+o.foldcolumn = '0' -- '0' means fold column is disabled
+o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+o.foldlevelstart = 99 -- start all folds opened when opening a file
+
 
 -- Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 

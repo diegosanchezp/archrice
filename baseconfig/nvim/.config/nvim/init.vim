@@ -183,7 +183,8 @@ Plug 'kevinhwang91/promise-async'
 call plug#end()
 
 " Set colorscheme
-colorscheme github_light_tritanopia
+" colorscheme github_light_tritanopia
+colorscheme github_dark_high_contrast
 
 "let ayucolor="light" " for mirage version of theme
 "runtime colors/ayu.vim

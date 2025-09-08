@@ -79,8 +79,9 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run
 # PROTIP: You can also dynamically set dmenu's colors this way:
-bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
+# bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -246,14 +247,23 @@ smart_borders on
 hide_edge_borders smart_no_gaps
 
 # Xresources
-# set_from_resource $fg i3wm.foreground #f0f0f0
-# set $bg #000000
-# set_from_resource $bf i3wm.color5 #00000
-# set_from_resource $bi i3wm.color15 #00000
+# https://i3wm.org/docs/userguide.html#xresources
+set_from_resource $fg i3wm.foreground #f0f0f0
+set_from_resource $bf i3wm.color5 #00000
+set_from_resource $bi i3wm.color15 #00000
+set $bg #000000
 
 # class                 border  backgr. text indicator child_border
 # client.focused          #fa1b02 "#285577, "#ffffff" "#2e9ef4"
-client.focused "#fa1b02" "#fa1b02" "#ffffff" "#fa1b02"
+
+# blue borders, yellow border for the border that indicates the direction of spawning a new child
+client.focused "#1466c3" "#1466c3" "#ffffff" "#fcba03"
+# yellow borders
+# client.focused "#fcba03" "#fcba03" "#ffffff" "#fa1b02"
+# red borders
+# client.focused "#fa1b02" "#fa1b02" "#ffffff" "#fa1b02"
+
+# client.focused $bg     $bg     $fg  $bg       $bg
 # client.focused_inactive $bg     $bg     $fg  $bg       $bg
 # client.unfocused        $bg     $bg     $fg  $bg       $bg
 # client.urgent           $bg     $bg     $fg  $bg       $bg

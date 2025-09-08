@@ -1,8 +1,11 @@
 [general]
-import = ["/home/diego/.config/alacritty/themes/themes/github_light.toml"]
+import = [
+  "/home/diego/.config/alacritty/themes/themes/github_dark_high_contrast.toml",
+  # "/home/diego/.config/alacritty/themes/themes/github_light.toml",
+]
 
 [font]
-size = 12
+size = 15
 
 [font.normal]
 # see ~/.config/fontconfig/conf.d/10-emoji.conf
@@ -51,7 +54,7 @@ mods = "Alt"
 save_to_clipboard = true
 
 [window]
-decorations_theme_variant = "Light"
+# decorations_theme_variant = "Light"
 dynamic_title = true
 
 # Spread additional padding evenly around the terminal content.
@@ -62,7 +65,7 @@ dynamic_padding = true
 [colors.vi_mode_cursor]
 text = "CellForeground"
 # Add red color to the cursor so it can be distinguished
-cursor = "#e30909" 
+cursor = "#e30909"
 
 [cursor.vi_mode_style]
 blinking = "On"

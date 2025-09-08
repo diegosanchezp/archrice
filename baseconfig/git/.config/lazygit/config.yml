@@ -4,3 +4,8 @@ git:
     pager: delta --paging=never
 gui:
   sidePanelWidth: 0.23
+  # This used so that the selected text in a line can be visible in dark themes
+  # https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#highlighting-the-selected-line
+  theme:
+    selectedLineBgColor:
+      - reverse
