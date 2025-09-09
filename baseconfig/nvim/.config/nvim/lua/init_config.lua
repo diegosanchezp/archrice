@@ -255,7 +255,7 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 local ftMap = {
     vim = 'indent',
-    python = {'indent'},
+    python = {'lsp', 'treesitter', 'indent'},
     git = '',
     Outline = ''
 }
