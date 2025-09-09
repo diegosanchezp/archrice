@@ -97,6 +97,7 @@ end
 local lspconfig = require('lspconfig')
 
 
+-- vim.lsp.enable('basedpyright')
 vim.lsp.enable('pyright')
 vim.lsp.enable('bashls')
 vim.lsp.enable('ts_ls')
@@ -271,16 +272,14 @@ require'lspconfig'.phpactor.setup{
 }
 
 -- Define your odoo LSP config
+-- This is causing me more problems with other type of files, it lags the help (shift+k)
 vim.lsp.config('odoo_lsp', {
   name = 'odoo-lsp',
   cmd = { 'odoo-lsp' },
   filetypes = { 'javascript', 'xml', 'python' },
-  root_makers = {
-    '.odoo_lsp', '.odoo_lsp.json', '.git'
-  },
-  on_attach = on_attach,
+  root_markers = {'.odoo_lsp', '.odoo_lsp.json'},
 })
-vim.lsp.enable('odoo_lsp')
+-- vim.lsp.enable('odoo_lsp')
 
 require("obsidian").setup({
     workspaces = {
