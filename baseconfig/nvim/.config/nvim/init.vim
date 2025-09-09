@@ -185,6 +185,8 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
 " Show code context
 Plug 'nvim-treesitter/nvim-treesitter-context'
 
+Plug 'epheien/outline-treesitter-provider.nvim'
+
 " Initialize plugin system
 call plug#end()
 

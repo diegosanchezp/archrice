@@ -242,7 +242,11 @@ outline.setup({
   preview_window = {
     width = 80,
   },
+  providers = {
+    priority = { 'lsp', 'markdown', 'norg', 'treesitter' },
+  },
 })
+
 -- vim.api.nvim_create_autocmd("FileType", { pattern = "Outline", command = [[setlocal nofoldenable]] })
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
