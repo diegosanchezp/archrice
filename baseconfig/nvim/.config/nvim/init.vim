@@ -179,6 +179,12 @@ Plug 'b0o/schemastore.nvim'
 Plug 'kevinhwang91/nvim-ufo'
 Plug 'kevinhwang91/promise-async'
 
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
+
+" Show code context
+Plug 'nvim-treesitter/nvim-treesitter-context'
+
 " Initialize plugin system
 call plug#end()
 
