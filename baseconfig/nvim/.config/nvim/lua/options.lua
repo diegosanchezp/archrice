@@ -33,6 +33,9 @@ o.wrap = true
 o.relativenumber = true
 o.number = true
 
+-- Set to true if you have a Nerd Font installed and selected in the terminal
+g.have_nerd_font = true
+
 opt.clipboard:append {"unnamedplus"}
 
 -- setting auto will remove the annoying random number on foldcolumn, if there is less than 9 levels of folding, for more, than 9, numbers will start to appear again. It also adjusts the foldcolumn size/width accordingly
