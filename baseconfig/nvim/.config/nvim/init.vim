@@ -187,6 +187,8 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 
 Plug 'epheien/outline-treesitter-provider.nvim'
 
+Plug 'mstuttgart/vscode-odoo-snippets'
+
 " Initialize plugin system
 call plug#end()
 
