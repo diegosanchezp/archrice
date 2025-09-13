@@ -1,7 +1,3 @@
 {
-  "kakano-style@@theme-setting-predefinedBaseColor": "theme-setting-baseColorPreset-accent",
-  "kakano-style@@theme-setting-lightModeNoteBg": "theme-setting-lightModeNoteBgNearWhite",
-  "kakano-style@@setting-properties-position": "setting-properties-position-above",
-  "kakano-style@@theme-setting-highlightActiveLine": false,
-  "kakano-style@@theme-value-gradientContrast": 0.2
+  "kakano-style@@theme-setting-predefinedBaseColor": "theme-setting-baseColorPreset-accent"
 }

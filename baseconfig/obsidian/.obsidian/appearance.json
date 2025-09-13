@@ -1,6 +1,6 @@
 {
   "baseFontSize": 20,
-  "accentColor": "#18af2a",
+  "accentColor": "",
   "theme": "system",
   "interfaceFontFamily": "JetBrainsMono Nerd Font Propo,JetBrains Mono",
   "showRibbon": false,
@@ -9,5 +9,5 @@
   "enabledCssSnippets": [
     "custom-tasks"
   ],
-  "cssTheme": "Kakano"
+  "cssTheme": ""
 }
