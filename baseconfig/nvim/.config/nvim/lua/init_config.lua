@@ -7,17 +7,15 @@ local utils = require("utils")
 -- Telescope configuration
 local telescope = require("telescope")
 local telescope_actions = require('telescope.actions')
+local builtin = require 'telescope.builtin'
 
 telescope.setup {
   defaults = {
     file_ignore_patterns = {"node_modules", ".git"},
+
+    wrap_results = true,
     path_display = {"smart"},
     dynamic_preview_title = true,
-    mappings = {
-      i = {
-        ["<esc>"] = telescope_actions.close
-      },
-    },
   },
   pickers = {
     find_files = {
@@ -26,7 +24,8 @@ telescope.setup {
       find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
     },
     live_grep = {
-      theme = "dropdown",
+      theme = "ivy",
+      path_display = {"absolute"}
     },
     buffers = {
       theme = "dropdown",
