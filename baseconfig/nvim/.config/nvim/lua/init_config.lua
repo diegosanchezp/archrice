@@ -38,6 +38,13 @@ telescope.setup {
     },
   },
 }
+
+vim.api.nvim_create_user_command('GrepOdoo', function(opts)
+  builtin.live_grep({
+      search_dirs = {"/home/diego/repos/ladonsoft/odoo18/odoo"},
+      glob_pattern = { "!*.po", "!*.pot" },
+  })
+end, {})
 vim.o.completeopt = "menuone,noselect"
 
 -- active the theme call this in your neovim config
