@@ -3,7 +3,7 @@ local g = vim.g
 
 -- "noremap" disables recursive_mapping
 
-g.mapleader = ","
+g.mapleader = " "
 map('', '<leader>h', ':nohlsearch<CR>', { noremap = true, silent = true })
 
 -- Obsidian plugin mappings ---

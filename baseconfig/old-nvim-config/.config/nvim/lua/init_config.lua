@@ -243,7 +243,7 @@ vim.lsp.config('yamlls', {
 local outline = require("outline")
 outline.setup({
   -- leaving empty to use defaults
-  relative_width = false,
+  relative_width = true,
   width = 40,
   preview_window = {
     width = 80,
