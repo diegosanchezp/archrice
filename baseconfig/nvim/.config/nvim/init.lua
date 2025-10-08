@@ -6,12 +6,12 @@
 -- vim.cmd('filetype on')
 
 -- Disable automatic commenting on newline for all filetypes
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "*",
---   callback = function()
---     vim.opt_local.formatoptions:remove{'c', 'r', 'o'}
---   end,
--- })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove{'c', 'r', 'o'}
+  end,
+})
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -104,6 +104,9 @@ vim.o.foldenable = true -- enable folding
 vim.o.foldcolumn = '0' -- '0' means fold column is disabled
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99 -- start all folds opened when opening a file
+
+-- obsidian-nvim/obsidian.nvim
+-- vim.opt.conceallevel = 0
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`

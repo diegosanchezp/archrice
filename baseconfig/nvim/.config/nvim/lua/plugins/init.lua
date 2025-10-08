@@ -177,10 +177,6 @@ return {
   {
     "obsidian-nvim/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
-
-    -- config = function()
-    --   vim.opt.conceallevel = 1
-    -- end,
     -- ft = "*",
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
       -- event = {
@@ -195,6 +191,10 @@ return {
 
       opts = {
         legacy_commands = false,
+        -- stops annoying message when opening markdown files
+        ui = {
+          enable = false,
+        },
         workspaces = {
           {
             name = "personal",
