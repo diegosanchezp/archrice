@@ -1,6 +1,6 @@
 -- vim: ts=2 sts=2 sw=2 et
 return {
-  
+
   { -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
@@ -62,8 +62,30 @@ return {
     opts = {
       -- configure cmdline's behavior to match the default mode
       cmdline = {
-        keymap = { preset = 'inherit' },
-        completion = { menu = { auto_show = true } },
+        keymap = {
+          ['<Tab>'] = { 'select_next', 'fallback' },
+          ['<S-Tab>'] = { 'select_prev', 'fallback' },
+          -- When using <Enter> (<CR>) to accept the current item, you may want to accept the completion item and immediately execute the command. You can achieve this via the accept_and_enter command
+          ['<CR>'] = { 'accept_and_enter', 'fallback' },
+        },
+        sources = function()
+          local type = vim.fn.getcmdtype()
+          -- Search forward and backward
+          if type == '/' or type == '?' then return { 'buffer' } end
+          -- Commands
+          if type == ':' or type == '@' then return { 'cmdline', 'buffer' } end
+          return {}
+        end,
+        completion = {
+          menu = {
+            auto_show = function(ctx)
+              local type = vim.fn.getcmdtype()
+              return type == ':' or '/'
+              -- enable for inputs as well, with:
+              -- or vim.fn.getcmdtype() == '@'
+            end,
+          },
+        },
       },
 
       keymap = {
@@ -117,7 +139,7 @@ return {
               -- when typing a command, only show when the keyword is 3 characters or longer
               if ctx.mode == 'cmdline' and string.find(ctx.line, ' ') == nil then return 3 end
               return 0
-            end
+            end,
           },
         },
       },

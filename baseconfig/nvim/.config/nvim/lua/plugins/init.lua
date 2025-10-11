@@ -111,6 +111,13 @@ return {
       },
     },
   },
+  -- autopairs
+  -- https://github.com/windwp/nvim-autopairs
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    opts = {},
+  },
   {
     "kevinhwang91/nvim-ufo",
     dependencies = {
@@ -271,5 +278,5 @@ return {
         suffix_next = 'n', -- Suffix to search with "next" method
       },
     },
-  }
+  },
 }
