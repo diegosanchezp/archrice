@@ -12,24 +12,28 @@ return {
   },
   {
     -- Detect tabstop and shiftwidth automatically
-    'NMAC427/guess-indent.nvim'
+    'NMAC427/guess-indent.nvim',
+    opts = { }
   },
   {
-      'nvim-lualine/lualine.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' },
-      opts = {
-        sections = {
-          lualine_c = {
-            {
-              "filename",
-              newfile_status = true,
-              path = 4,
-              -- show_filename_only = false,
-              -- mode = 4
-            },
-          }
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {
+      sections = {
+        lualine_b = {
+          'diff', 'diagnostics'
         },
-        -- options = {
+        lualine_c = {
+          {
+            "filename",
+            newfile_status = true,
+            path = 1,
+            -- show_filename_only = false,
+            -- mode = 4
+          },
+        }
+      },
+      -- options = {
         --   theme = 'gruvbox_dark'
         --
         -- }
@@ -178,6 +182,10 @@ return {
       },
       providers = {
         priority = { 'lsp', 'markdown', 'norg', 'treesitter' },
+        lsp = {
+          -- We ignore obsidian-ls client to avoid having warning message "No response from provider when requesting symbols!". This setting also avoids the problem of not having folding in the outline
+          blacklist_clients = {'obsidian-ls'}
+        }
       },
     },
   },
