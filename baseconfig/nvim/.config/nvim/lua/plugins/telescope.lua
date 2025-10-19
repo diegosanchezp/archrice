@@ -51,21 +51,21 @@ return {
         },
         pickers = {
           find_files = {
-            theme = "dropdown",
+            theme = "ivy",
             -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
             find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
           },
           live_grep = {
-            theme = "dropdown",
+            theme = "ivy",
           },
           buffers = {
-            theme = "dropdown",
+            theme = "ivy",
           },
           help_tags = {
-            theme = "dropdown",
+            theme = "ivy",
           },
           oldfiles = {
-            theme = "dropdown",
+            theme = "ivy",
           },
         },
       }
@@ -86,14 +86,14 @@ return {
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
 
-	-- It's also possible to pass additional configuration options.
-	--  See `:help telescope.builtin.live_grep()` for information about particular keys
-	vim.keymap.set('n', '<leader>s/', function()
-		builtin.live_grep {
-			grep_open_files = true,
-			prompt_title = 'Live Grep in Open Files',
-		}
-	end, { desc = '[S]earch [/] in Open Files' })
+        -- It's also possible to pass additional configuration options.
+        --  See `:help telescope.builtin.live_grep()` for information about particular keys
+        vim.keymap.set('n', '<leader>s/', function()
+          builtin.live_grep {
+            grep_open_files = true,
+            prompt_title = 'Live Grep in Open Files',
+          }
+        end, { desc = '[S]earch [/] in Open Files' })
 
         vim.api.nvim_create_user_command('GrepOdoo', function(opts)
           builtin.live_grep({
