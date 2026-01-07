@@ -100,21 +100,35 @@ return {
               search_dirs = {"/home/diego/repos/ladonsoft/odoo18/odoo"},
               glob_pattern = { "!*.po", "!*.pot" },
           })
-        end, {desc = "Search Odoo Files"})
+        end, {desc = "Grep in Odoo Files"})
+
+        -- vim.api.nvim_create_user_command('SearchOdoo', function(opts)
+        --   builtin.find_files({
+        --       search_dirs = {"/home/diego/repos/ladonsoft/odoo18/odoo"},
+        --   })
+        -- end, {desc = "Search Odoo Files"})
     end,
     -- https://github.com/LazyVim/LazyVim/blob/b4606f9df3395a261bb6a09acc837993da5d8bfc/lua/lazyvim/plugins/extras/editor/telescope.lua#L4
     keys = {
       {
         "<leader>ff",
-        function()
-          require('telescope.builtin').find_files({hidden = true})
-        end,
+        "<cmd>Telescope find_files hidden=true<cr>"
       },
       {
         "<leader>fg",
-	"<cmd>Telescope live_grep<cr>", 
-	desc="Live grep"
+        "<cmd>Telescope live_grep<cr>", 
+        desc="Live grep"
       },
+      {
+        "<leader>go",
+        "<cmd>GrepOdoo<cr>",
+        desc="Grep Odoo's source code",
+      },
+      -- {
+      --   "<leader>yo",
+      --   "<cmd>SearchOdoo<cr>",
+      --   desc="Search Odoo's source code files",
+      -- },
       {
         "<leader>fb",
         "<cmd>Telescope buffers sort_mru=true sort_lastused=true ignore_current_buffer=true<cr>",
