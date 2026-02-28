@@ -59,7 +59,7 @@ bindsym $mod+Shift+minus move scratchpad
 # exec i3 -V -d all &>> "$HOME/i3.log"
 
 ## Launch // Screenshot // <> s ##
-bindsym $mod+g exec gnome-screenshot -i -a
+bindsym $mod+g exec flameshot gui
 
 
 # Use pactl to adjust volume in PulseAudio.
