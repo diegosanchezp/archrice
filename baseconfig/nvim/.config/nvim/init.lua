@@ -147,6 +147,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Copy relative filepath to clipboard
+local function copy_file_path()
+  local bufname = vim.api.nvim_buf_get_name(0)
+  local relpath = vim.fn.fnamemodify(bufname, ':.')
+  if relpath ~= '' then
+    vim.fn.setreg('+', relpath)
+    vim.notify('Copied: ' .. relpath, vim.log.levels.INFO, { title = 'File Path' })
+  else
+    vim.notify('No file path to copy', vim.log.levels.WARN, { title = 'File Path' })
+  end
+end
+vim.api.nvim_create_user_command('CopyFilePath', copy_file_path, {})
+
 -- Trim trailing whitespace function
 local function trim_whitespace()
   local view = vim.fn.winsaveview()
