@@ -3,6 +3,9 @@ return {
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
+    -- Adding cmd = 'Telescope' tells lazy.nvim to load the plugin when the :Telescope command is invoked.
+    -- Otherwise Telescope won't load until triggered by a keymap or command.
+    cmd = 'Telescope',
     dependencies = {
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-ui-select.nvim' },
