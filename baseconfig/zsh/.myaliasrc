@@ -1,5 +1,25 @@
+# vim: filetype=sh
 alias todo='nvim $TODO'
-alias v=nvim
+
+v(){
+  alacritty msg config "window.title='nvim'"
+  if [ $# -eq 0 ]; then
+    # uses VimEnter autocmd which makes the telescope command trigger when neovim has fully initialized
+    # avoiding weird cursor positions.
+
+    # If current working directory is ~/repos/ or is child of ~/repos
+    if [ "$PWD" = "$HOME/repos" ] || [[ "$PWD" == "$HOME/repos/"* ]]; then
+      # List recently opened files of the current working directory 
+      nvim -c "autocmd VimEnter * ++once lua require('telescope.builtin').oldfiles({cwd = vim.fn.getcwd()})"
+    else
+      # Search files with Telescope
+      nvim -c "autocmd VimEnter * ++once lua require('telescope.builtin').find_files({ cwd = '.' })"
+    fi
+  else
+    nvim "$@"
+  fi
+}
+
 alias lz=lazygit
 # Override ls default output
 alias ls='ls --human-readable --indicator-style=slash --group-directories-first'
