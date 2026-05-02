@@ -61,10 +61,10 @@ cpwd(){
   pwd | xclip -sel clip
 }
 
-# Copy last command to clipboard
+# Copy last command (clc) to clipboard
 # Not working currently
-lastcpy(){
-  echo !! | xclip -sel clip
+clc() {
+  fc -ln -1 | sed 's/^[[:space:]]*//' | tr -d '\n' | xclip -selection clipboard
 }
 
 help(){
