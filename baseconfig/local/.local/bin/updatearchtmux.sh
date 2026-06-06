@@ -1,9 +1,22 @@
 #!/bin/bash
 
-# Spawns a tmux session and begin
-tmux new-session -d -s update-arch
+SESSION_NAME="update-arch"
+SCRIPT_DIR="$HOME/.local/bin"
+SCRIPT_NAME="updatearch.sh"
 
-tmux send-keys -t update-arch "./updatearch.sh''" ENTER
+# Check if the tmux session already exists
+if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+    echo "Session '$SESSION_NAME' already exists. Attaching..."
+    tmux attach-session -t "$SESSION_NAME"
+else
+    echo "Session '$SESSION_NAME' not found. Creating and starting update..."
+    # Create a new detached session
+    tmux new-session -d -s "$SESSION_NAME"
+fi
 
-tmux attach -t update-arch
+# Send the command using absolute paths
+tmux send-keys -t "$SESSION_NAME" "sudo bash $SCRIPT_DIR/$SCRIPT_NAME" ENTER
+
+# Attach to the newly created session
+tmux attach-session -t "$SESSION_NAME"
 
